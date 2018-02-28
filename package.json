@@ -1,0 +1,38 @@
+{
+    "name": "zyre-nedb",
+    "version": "1.0.0",
+    "description": "NeDB working on Zyre protocol for decetralized database based on NeDB",
+    "main": "index.js",
+    "scripts": {
+        "test": "test.js",
+        "demo": "node examples/demo.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/arcoirislabs/zyre-nedb.git"
+    },
+    "keywords": [
+        "zre",
+        "nedb",
+        "distributed",
+        "database",
+        "decentralised",
+        "database",
+        "decentralized",
+        "database",
+        "decentralized",
+        "decentralised",
+        "distributed"
+    ],
+    "author": "Arcoiris Labs",
+    "license": "BSD-3-Clause",
+    "bugs": {
+        "url": "https://github.com/arcoirislabs/zyre-nedb/issues"
+    },
+    "homepage": "https://github.com/arcoirislabs/zyre-nedb#readme",
+    "dependencies": {
+        "lodash": "^4.17.5",
+        "nedb": "^1.8.0",
+        "zyre.js": "^1.1.2"
+    }
+}
