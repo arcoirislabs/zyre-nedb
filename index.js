@@ -15,7 +15,11 @@ function ZDB(params) {
         headers: {
             user: params.user,
             database: params.database
-        }
+        },
+        evasive: 5000, // Timeout after which the local node will try to ping a not responding peer
+        expired: 30000, // Timeout after which a not responding peer gets disconnected
+        bport: params.discoveryPort, // Discovery beacon broadcast port
+        binterval: 1000, // Discovery beacon broadcast interval
     });
 
     self.z.setEncoding('utf8');
@@ -48,6 +52,8 @@ function ZDB(params) {
     this.z.on('join', (id, name, group) => {
         this.z.whisper(id, JSON.stringify({ event: 'database-find' }));
     });
+
+
 }
 
 inherits(ZDB, EventEmitter);
