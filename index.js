@@ -21,7 +21,6 @@ function ZDB(params) {
     self.z.setEncoding('utf8');
 
     self.z.on('whisper', (id, name, message) => {
-        console.log("on whisper", id, name, message);
         const wm = JSON.parse(message);
 
         switch (wm.event) {
@@ -39,7 +38,6 @@ function ZDB(params) {
 
             default:
                 self.runDBCommand(JSON.parse(message), (e, s) => {
-                    console.log("em respo")
                     self.z.whisper(id, JSON.stringify({ event: 'database-response', data: { error: e, result: s } }));
                 });
 
@@ -49,7 +47,6 @@ function ZDB(params) {
     });
     this.z.on('join', (id, name, group) => {
         this.z.whisper(id, JSON.stringify({ event: 'database-find' }));
-        //console.log("on join to " + this.params.name, `(${group}) ${name}`, this.z.getPeer(id));
     });
 }
 
@@ -75,14 +72,12 @@ ZDB.prototype.search = function(cb) {
 
 ZDB.prototype.start = function(cb) {
     this.z.start(() => {
-        console.log("ZDB started", this.params.database);
         cb();
     });
 };
 
 ZDB.prototype.run = function(cmd, opts, mcb) {
     this.on('database-response', function(i) {
-        //console.log(i);
         mcb(i.data.error, i.data.result, i.id);
     });
     this.z.whisper(this.sdb, JSON.stringify({ cmd: cmd, options: opts }));
@@ -112,11 +107,6 @@ ZDB.prototype.runDBCommand = function(m, cb) {
     this.db[m.cmd](m.options, cb);
 };
 
-ZDB.prototype._sendDBResponse = function(e, s) {
-    console.log("sending respo",
-        e, s);
-    this.emit('database-response', { table: "patient" });
-};
 
 module.exports = ZDB;
 
