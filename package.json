@@ -4,7 +4,7 @@
     "description": "NeDB working on Zyre protocol for decetralized database based on NeDB",
     "main": "index.js",
     "scripts": {
-        "test": "test.js",
+        "test": "node test.js",
         "demo": "node examples/demo.js"
     },
     "repository": {
