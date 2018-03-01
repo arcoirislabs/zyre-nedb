@@ -1,6 +1,6 @@
 {
     "name": "zyre-nedb",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "NeDB working on Zyre protocol for decetralized database based on NeDB",
     "main": "index.js",
     "scripts": {

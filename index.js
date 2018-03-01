@@ -95,10 +95,12 @@ ZDB.prototype.setDatabase = function(id, cb) {
 
 
 ZDB.prototype.getPeerDatabases = function(cb) {
-    const s = _.mapValues(this.z.getPeers(), 'headers.user');
+    //const s = _.mapValues(this.z.getPeers(), 'headers.user');
+    const s = this.z.getPeers();
     var d = [];
     Object.keys(s).forEach(el => {
-        d.push({ id: el, user: s[el] });
+        s[el].id = el;
+        d.push(s[el]);
     });
     return d;
 };
