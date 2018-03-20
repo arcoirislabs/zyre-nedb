@@ -31,8 +31,10 @@
     },
     "homepage": "https://github.com/arcoirislabs/zyre-nedb#readme",
     "dependencies": {
+        "ip": "^1.1.5",
         "lodash": "^4.17.5",
         "nedb": "^1.8.0",
+        "request": "^2.85.0",
         "zyre.js": "^1.1.2"
     }
 }
